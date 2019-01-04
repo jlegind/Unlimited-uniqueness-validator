@@ -1,7 +1,11 @@
 # Unlimited-uniqueness-validator
 Validation of record identifier uniqueness regardless of file size.
 
-The core class
+The core class CheckDuplicates reads the input it gets into chunks continually. Each chunk is checked for duplicates and these duplicates are written into a dictionary object with each identifier as key and the number of times it appears as the value.
+When the input file is exhausted and chunked, all the chunks are compared against each other `compare_chunks()` and the dictionary is updated with additional duplicates. `compare_chunks()` returns the dictionary of duplicates.  
+
+Below is an example of how the CheckDuplicates class could be employed. This should be improved.
+
 
 ```
 def run_main(writes=0):
