@@ -5,6 +5,8 @@ The core class CheckDuplicates reads the input it gets into chunks continually. 
 When the input file is exhausted and chunked, all the chunks are compared against each other `compare_chunks()` and the dictionary is updated with additional duplicates. `compare_chunks()` returns the dictionary of duplicates.  
 
 Below is an example of how the CheckDuplicates class could be employed. This should be improved.
+#### Task
+This class using the CheckDuplicates class should allow for csv files and other types column separators to be ingestable. Also identifiers consisting of multiple fields should be allowed.
 
 
 ```
