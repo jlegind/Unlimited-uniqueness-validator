@@ -10,6 +10,8 @@ Below is an example of how the CheckDuplicates class could be employed. This sho
 ```
 def run_main(writes=0):
     dup = CheckDuplicates(2000000, threshold=2)
+    #The first arg is how many values each chunk can have. This can be tweaked to fit to memory. 2M is a conservative figure.
+    #Threshold sets the number of duplicates required to be a concern.  
     mypath = 'G:/dwc_archives/inaturalist.txt'
     write_path = 'G:/duplicates.txt'
     dwcP = DwcProcessor(mypath)
