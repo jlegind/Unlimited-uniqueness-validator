@@ -83,6 +83,7 @@ class CheckDuplicates(object):
 
     def compare_chunks(self):
         """All chunks are compared against one another. Returns conglomerate."""
+        #WARNING!!! The threshold limit has not been implemented in this function !!!
         conglomerate = self.conglomerate
         while self.brine:
             with open(self.brine.pop(), 'rb') as a_file:
