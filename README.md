@@ -1,7 +1,7 @@
 # Unlimited-uniqueness-validator
 Validation of record identifier uniqueness regardless of file size
 
-The 
+The core class
 
 ```
 def run_main(writes=0):
