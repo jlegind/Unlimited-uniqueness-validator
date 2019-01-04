@@ -1,5 +1,5 @@
 # Unlimited-uniqueness-validator
-Validation of record identifier uniqueness regardless of file size
+Validation of record identifier uniqueness regardless of file size.
 
 The core class
 
