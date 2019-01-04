@@ -6,7 +6,7 @@ When the input file is exhausted and chunked, all the chunks are compared agains
 
 Below is an example of how the CheckDuplicates class could be employed. This should be improved.
 #### Task
-This class using the CheckDuplicates class should allow for csv files and other types column separators to be ingestable. Also identifiers consisting of multiple fields should be allowed.
+This new class using the CheckDuplicates class for duplicate detection should allow for csv files and other types of column separators to be ingestable. Also identifiers consisting of multiple fields should be allowed.
 
 
 ```
