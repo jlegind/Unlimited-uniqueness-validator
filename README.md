@@ -1,12 +1,12 @@
 # Unlimited-uniqueness-validator
 Validation of record identifier uniqueness regardless of file size
 
-def run_main(writes=0):
-    dup = CheckDuplicates(2000000, threshold=2)
-    mypath = 'G:/dwc_archives/inaturalist.txt'
-    write_path = 'G:/duplicates.txt'
-    dwcP = DwcProcessor(mypath)
-    #DwcProcessor could be an external class that reads occurrence text files
+```def run_main(writes=0):
+   	dup = CheckDuplicates(2000000, threshold=2)
+   	mypath = 'G:/dwc_archives/inaturalist.txt'
+   	write_path = 'G:/duplicates.txt'
+   	dwcP = DwcProcessor(mypath)
+   	#DwcProcessor could be an external class that reads occurrence text files
 
     
     for j in dwcP.read_field(0, ">", 0, "\t", 1):        
@@ -30,3 +30,4 @@ def run_main(writes=0):
 
 def main():
     print(timeit.timeit("run_main(0)", setup="from __main__ import run_main", number=1)), 'time spent'
+```
