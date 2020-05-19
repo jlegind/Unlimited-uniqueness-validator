@@ -24,9 +24,11 @@ class CheckDuplicates(object):
     j = 0
 
     def __init__(self, chunk_size, threshold=2):
+        # Chunk size I set to 2 million items since that will fit into physical memory most of the time.
         self.chunk_size = chunk_size
         self.threshold = threshold
         ppath = 'c:/pickles/pickles'
+        #This is where the file chunks are held in disk-drive memory. Make sure there is enough space in the dir when working on large files
         if(os.path.isdir(ppath)):
             print(ppath)
             os.rmdir(ppath)
@@ -50,7 +52,7 @@ class CheckDuplicates(object):
 
     def chunk_check(self, a_list):
         """Takes a list(chunk) and converts it to a dictionary listing each element
-        the number of times it appears and a conglomerate of duplicates is created.
+        the number of times it appears and a conglomerate (dict) of duplicates is created.
         The chunk is reduced and then pickled.
         Returns conglomerate."""
         my_list = a_list
@@ -70,7 +72,7 @@ class CheckDuplicates(object):
                 except KeyError:
                     congl[k] = new_cnt.pop(k)
         """Each chunk is processed into a conglomerate of all dictionary key-value pairs
-        where the value > 1. Those key-value pairs are then removed from the chunk. """
+        where the value > 1 or whatever the threshold is set at. Those key-value pairs are then removed from the chunk. """
         with open(path, 'wb') as ff:
             pickle.dump(new_cnt, ff, protocol=2)
         #The Count() object is pickled for comparison later
@@ -113,4 +115,5 @@ class CheckDuplicates(object):
                                 conglomerate[k] = test_chunk.pop(k)
 
         shutil.rmtree('c:/pickles/pickles')
+        # Deletes content of dir. Warning: If something goes wrong in execution, this won't part won't be reached and will block subsequent calls to the pickled object.
         return conglomerate, 'my conglomerate'
