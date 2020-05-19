@@ -12,11 +12,8 @@ def run_main(readpath, writepath, field_index=0, writes=0):
     # DwcProcessor could be an external class that reads occurrence text files
     # try:
     for j in dwcP.read_field(field_index):
-        # print 'printing j: ', j
-        dup.create_chunk(j)
-    # except:
-    #     print 'error'
 
+        dup.create_chunk(j)
 
     dup.create_chunk(None)
     distill = dup.compare_chunks()
