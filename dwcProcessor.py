@@ -39,7 +39,7 @@ class DwcProcessor(object):
             my_list = my_list.split(self.delimiter)
             for j in my_list:
                 header = header + "(%s)%s\t" %(my_list.index(j), j.strip())
-                #print "(%s)%s" %(my_list.index(j), j),
+
             print('HEADER: ', header)
 
             for j in range(0, number):
@@ -60,9 +60,9 @@ class DwcProcessor(object):
 
         ops = {"<": operator.lt, ">": operator.gt, "=": operator.eq}
         op_function = ops[my_operator]
-        print "starter.."
+        print "start 'read_field().."
         dwcline = self.dwca.readline()
-        print(dwcline)
+
         j = 0
 
         try:
@@ -70,25 +70,23 @@ class DwcProcessor(object):
                 # print(dwcline)
                 j += 1
                 if (j%10000 is 0):
-                   print j,
+                   print(j),
 
                 if not dwcline:
 ##                    print 'End of file - BREAK!'
                     break
                 my_list = dwcline.split(self.delimiter)
                 my_field = my_list[position]
-                # print('my field : ', my_field)
+
                 yield my_field
-                #Added yield here
+
                 if (op_function(len(my_field), lng)):
 
                     if (print_field == 0):
                         j += 1
                         my_list = self.delimiter.join(my_list)
                         yield my_list
-##                    else:
-##                        j += 1
-##                        print my_field
+##
                 dwcline = self.dwca.readline()
 
             print '\n Total count = ', j , " ***"
